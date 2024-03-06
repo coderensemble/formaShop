@@ -5,7 +5,7 @@ import { useCookies } from "vue3-cookies";
 const { getCookie, setCookie } = useCookies();
 
 const products = ref([
-  { id: 1, description: "Ultimate", price: 150, img: "" },
+  { id: 1, description: "Ultimate", price: 150, img: "../../assets/img/ultimate.jpg" },
   { id: 2, description: "Course d'orientation", price: 200, img: "" },
   { id: 3, description: "Roller", price: 200, img: "" },
   { id: 4, description: "Tir à l'arc", price: 200, img: "" },
@@ -17,9 +17,9 @@ const products = ref([
   { id: 10, description: "Trail", price: 150, img: "" },
 ]);
 
-const searchKey = ref("");
-const liked = ref([]);
-const cart = ref([]);
+let searchKey = ref("");
+let liked = ref([]);
+let cart = ref([]);
 
 const filteredList = computed(() => {
   return products.value.filter((product) => {
@@ -28,24 +28,23 @@ const filteredList = computed(() => {
 });
 
 const getLikeCookie = () => {
-  let cookieValue = JSON.parse($cookies.get('like'));
+  let cookieValue = JSON.parse($cookies.get("like"));
   liked.value = cookieValue || [];
 };
 
 const setLikeCookie = () => {
-  document.addEventListener('input', () => {
+  document.addEventListener("input", () => {
     setTimeout(() => {
       let cookieValue = JSON.stringify(liked.value);
-      $cookies.set('like', cookieValue); 
+      $cookies.set("like", cookieValue);
     }, 300);
   });
 };
 
 const addToCart = (product) => {
-  // check if already in array
   for (let i = 0; i < cart.value.length; i++) {
     if (cart.value[i].id === product.id) {
-      return cart.value[i].quantity++; 
+      return cart.value[i].quantity++;
     }
   }
   cart.value.push({
@@ -53,15 +52,13 @@ const addToCart = (product) => {
     img: product.img,
     description: product.description,
     price: product.price,
-    quantity: 1
+    quantity: 1,
   });
 };
 
 const cartRemoveItem = (id) => {
-  cart.value.splice(id, 1);   
+  cart.value.splice(id, 1);
 };
-
-
 </script>
 
 <template>
@@ -83,7 +80,7 @@ const cartRemoveItem = (id) => {
         :key="product.id"
         class="col-lg-4 col-md-6 mb-4"
         style="width: 18rem; height: 18rem">
-        <img class="card-img-top" :src="product.img" alt="Card image" />
+        <img class="" :src="product.img" alt="Card image" />
         <div class="card-body">
           <h5 class="card-title">{{ product.description }}</h5>
           <p class="card-text">{{ product.price }}€</p>
@@ -100,7 +97,7 @@ const cartRemoveItem = (id) => {
                 <i class="fas fa-heart"></i>
               </label>
             </div>
-            <button class="btn btn-primary" @click="addToCart(product)">
+            <button class="btn btn-primary" v-on:click="addToCart(product)">
               <i class="fa-solid fa-cart-shopping"></i>
             </button>
           </div>
@@ -116,11 +113,15 @@ const cartRemoveItem = (id) => {
       <!-- Cart display -->
       <div v-if="cart.length > 0" class="shopping-cart" id="shopping-cart">
         <h2>Panier</h2>
+        <div v-for="product in cart" :key="product.id">
+          <div>
+            <h4>{{ product.description }}</h4>
+          </div>
+        </div>
       </div>
+      
     </div>
   </div>
 </template>
 
-<style scoped>
-/* Vos styles CSS ici */
-</style>
+<style scoped></style>
