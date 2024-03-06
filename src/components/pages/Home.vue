@@ -5,16 +5,16 @@ import { useCookies } from "vue3-cookies";
 const { getCookie, setCookie } = useCookies();
 
 const products = ref([
-  { id: 1, description: "Ultimate", price: 150, img: "/assets/img/ultimate.jpg" },
-  { id: 2, description: "Course d'orientation", price: 200, img: "" },
-  { id: 3, description: "Roller", price: 200, img: "" },
-  { id: 4, description: "Tir à l'arc", price: 200, img: "" },
-  { id: 5, description: "Vélo Tout Terrain", price: 200, img: "" },
-  { id: 6, description: "Rugby", price: 150, img: "" },
-  { id: 7, description: "Skateboard", price: 200, img: "" },
-  { id: 8, description: "Roller", price: 200, img: "" },
-  { id: 9, description: "Slack Line", price: 200, img: "" },
-  { id: 10, description: "Trail", price: 150, img: "" },
+  { id: 1, description: "Ultimate", price: 150, img: "https://images.unsplash.com/photo-1591337819702-5c21810edd47?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+  { id: 2, description: "Course d'orientation", price: 200, img: "https://images.unsplash.com/photo-1558978325-cc8c760a0484?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+  { id: 3, description: "Roller", price: 200, img: "https://images.unsplash.com/photo-1583832292569-7092d6d90873?q=80&w=2104&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+  { id: 4, description: "Tir à l'arc", price: 200, img: "https://images.unsplash.com/photo-1547347268-4a6dd064cdad?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+  { id: 5, description: "Vélo Tout Terrain", price: 200, img: "https://images.unsplash.com/photo-1566480047210-b10eaa1f8095?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+  { id: 6, description: "Rugby", price: 150, img: "https://images.unsplash.com/photo-1558151507-c1aa3d917dbb?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+  { id: 7, description: "Skateboard", price: 200, img: "https://plus.unsplash.com/premium_photo-1666239108599-aed5205c6727?q=80&w=1207&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+  { id: 8, description: "Workout", price: 200, img: "https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+  { id: 9, description: "Slack Line", price: 200, img: "https://images.unsplash.com/photo-1558635552-3aae5627e3e4?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+  { id: 10, description: "Trail", price: 150, img: "https://images.unsplash.com/photo-1456613820599-bfe244172af5?q=80&w=1174&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
 ]);
 
 let searchKey = ref("");
@@ -63,7 +63,7 @@ const cartRemoveItem = (id) => {
 
 <template>
   <div class="container">
-    <h1 class="my-4">ARTICLES</h1>
+    <h1 class="my-4">FORMATION</h1>
 
     <!-- SEARCH DISPLAY -->
     <div class="input-group mb-3">
@@ -74,13 +74,13 @@ const cartRemoveItem = (id) => {
     </div>
 
     <!-- CARD DISPLAY -->
-    <div class="row">
+    <div class="row d-flex flex-wrap">
       <div
         v-for="product in filteredList"
         :key="product.id"
-        class="col-lg-4 col-md-6 mb-4"
+        class="col-lg-4 col-md-6 mb-4 m-1 mr-0 bg-white rounded-4 overflow-hidden position-relative shadow-sm"
         style="width: 18rem; height: 18rem">
-        <img class="" :src="product.img" alt="Card image" />
+        <img class="img-fluid max-width: 100% height: auto;" :src="product.img" alt="Card image" />
         <div class="card-body">
           <h5 class="card-title">{{ product.description }}</h5>
           <p class="card-text">{{ product.price }}€</p>
