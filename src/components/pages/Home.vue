@@ -5,7 +5,7 @@ import { useCookies } from "vue3-cookies";
 const { getCookie, setCookie } = useCookies();
 
 const products = ref([
-  { id: 1, description: "Ultimate", price: 150, img: "../../assets/img/ultimate.jpg" },
+  { id: 1, description: "Ultimate", price: 150, img: "/assets/img/ultimate.jpg" },
   { id: 2, description: "Course d'orientation", price: 200, img: "" },
   { id: 3, description: "Roller", price: 200, img: "" },
   { id: 4, description: "Tir à l'arc", price: 200, img: "" },
@@ -113,13 +113,32 @@ const cartRemoveItem = (id) => {
       <!-- Cart display -->
       <div v-if="cart.length > 0" class="shopping-cart" id="shopping-cart">
         <h2>Panier</h2>
+
+        <div class="item-group">
         <div v-for="product in cart" :key="product.id">
           <div>
             <h4>{{ product.description }}</h4>
+            <p>{{ product.price }}€</p>
+          </div>
+          <div class="">
+            <h6>quantité : {{ product.quantity }}</h6>
+          </div>
+
+          <div class="cart-icons">
+            <button>
+              <i class="fa fa-plus"></i>
+            </button>
+            <button>
+              <i class="fa fa-minus"></i>
+            </button>
+            <button>
+              <i class="fa fa-trash"></i>
+            </button>
           </div>
         </div>
       </div>
-      
+    </div>
+
     </div>
   </div>
 </template>
