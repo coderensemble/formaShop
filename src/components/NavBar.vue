@@ -33,14 +33,14 @@ const currentView = computed(() => {
 
       <ul id="icons">
         <li>
-          <a href="#/user-settings"><i class="fa-solid fa-user"></i></a>
-        </li>
-        <li>
           <a href="#/wish-list/"><i class="fa fa-heart"></i></a>
           <span id="nav-notif"></span>
         </li>
         <li>
           <a href="#/shopping-cart"><i class="fa-solid fa-basket-shopping"></i></a>
+        </li>
+        <li>
+          <a href="#/user-settings"><i class="fa-solid fa-user"></i></a>
         </li>
       </ul>
     </div>

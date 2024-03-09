@@ -1,8 +1,8 @@
 <script setup>
 import { ref, computed, onMounted, watch } from "vue";
 import { useCookies } from "vue3-cookies";
-import SearchDisplay from "@/components/SearchDisplay.vue";
-import CardDisplay from "@/components/CardDisplay.vue";
+import SearchDisplay from "../components/SearchDisplay.vue";
+import CardDisplay from "../components/CardDisplay.vue";
 import { products } from '../products';
 
 
@@ -95,12 +95,12 @@ const cartRemoveItem = (id) => {
         {{ filteredList.length }} résultat<span v-if="filteredList.length > 1">s</span></span
       >
     </div> -->
-    <search-display></search-display>
+    <searchDisplay :searchKey="searchKey" :filteredList="filteredList"></searchDisplay>
     
 
     <!-- CARD DISPLAY -->
-    <!-- <CardDisplay></CardDisplay> -->
-    <div class="card-cart-container">
+    <CardDisplay :filteredList="filteredList" :liked="liked" :addToCart="addToCart"></CardDisplay>
+    <!-- <div class="card-cart-container">
       <div class="card-container">
         <div v-for="product in filteredList" :key="product.id" class="card">
 
@@ -133,7 +133,7 @@ const cartRemoveItem = (id) => {
               </button>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <!-- No result message -->
         <!-- <div v-if="filteredList.length === 0" class="no-result">
@@ -189,8 +189,7 @@ const cartRemoveItem = (id) => {
         </div>
       </transition>
     </div>
-  </div>
-  </div>
+  <!-- </div> -->
 </template>
 
 <style scoped>

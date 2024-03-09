@@ -4,6 +4,12 @@
     <span v-if="searchKey && filteredList.length > 0">
       {{ filteredList.length }} résultat<span v-if="filteredList.length > 1">s</span></span
     >
+
+      <div v-if="filteredList.length === 0" class="no-result">
+          <h3>Désolé</h3>
+          <p>Aucun résultat trouvé</p>
+        </div>
+ 
   </div>
 </template>
 
