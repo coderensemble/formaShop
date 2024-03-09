@@ -190,6 +190,7 @@ const cartRemoveItem = (id) => {
       </transition>
     </div>
   </div>
+  </div>
 </template>
 
 <style scoped>
