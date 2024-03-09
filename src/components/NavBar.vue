@@ -1,9 +1,9 @@
 <script setup>
 import { ref, computed } from "vue";
-import Home from "@/components/pages/Home.vue";
-import ShoppingCart from "@/components/pages/ShoppingCart.vue";
-import UserSettings from "@/components/pages/UserSettings.vue";
-import WishList from "@/components/pages/WishList.vue";
+import Home from "@/pages/Home.vue";
+import ShoppingCart from "@/pages/ShoppingCart.vue";
+import UserSettings from "@/pages/UserSettings.vue";
+import WishList from "@/pages/WishList.vue";
 
 const routes = {
   "/": Home,
