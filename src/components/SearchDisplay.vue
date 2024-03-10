@@ -28,5 +28,19 @@ const filteredList = computed(() => {
 </script>
 
 <style scoped>
-
+.home-container #search {
+  margin: 1rem 1rem 2rem 0;
+  height: 2.4rem;
+  padding: 0 0.5rem;
+  border-radius: 5px;
+  transition: 0.4s ease;
+  border: 2px solid rgba(51, 51, 51, 0.835);
+}
+.home-container #search:focus {
+  outline: none;
+  border: 2px solid #2eb7eb;
+}
+.no-result {
+  margin: 0 4rem 0 0.4rem;
+}
 </style>

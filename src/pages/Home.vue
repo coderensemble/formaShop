@@ -194,17 +194,17 @@ const cartRemoveItem = (id) => {
 
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
-:deep* {
+/* :deep* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   list-style: none;
   font-family: "Ubuntu", sans-serif;
-  /* background: rgba(254, 254, 254, 0.8); */
+  background: rgba(254, 254, 254, 0.8);
   padding-bottom: 4rem;
   color: #333;
   overflow-x: hidden;
-}
+} */
 
 h1 {
   padding: 6rem 0 0 2.4rem;
@@ -215,12 +215,12 @@ a:visited {
   color: #333;
 }
 
-button {
+/* button {
   border: none;
   background: none;
   outline: none;
   cursor: pointer;
-}
+} */
 .home-container {
   max-width: 1250px;
   margin: 0 auto;
@@ -234,35 +234,23 @@ button {
 .home-container h1 {
   padding-left: 0;
 }
-.home-container #search {
-  margin: 1rem 1rem 2rem 0;
-  height: 2.4rem;
-  padding: 0 0.5rem;
-  border-radius: 5px;
-  transition: 0.4s ease;
-  border: 2px solid rgba(51, 51, 51, 0.835);
-}
-.home-container #search:focus {
-  outline: none;
-  border: 2px solid #2eb7eb;
-}
-.home-container .card-cart-container {
+/* .home-container .card-cart-container {
   display: flex;
-}
-.home-container .card-cart-container .card-container {
+} */
+/* .home-container .card-cart-container .card-container {
   display: flex;
   flex-wrap: wrap;
-}
-.home-container .card-cart-container .card-container .card {
+} */
+/* .home-container .card-cart-container .card-container .card {
   margin: 0.4rem 1rem 0.4rem 0;
   background: white;
   border-radius: 4px;
   overflow: hidden;
-  /* position: relative; */
+  position: relative;
   box-shadow: 0 0px 6px rgba(51, 51, 51, 0.15);
   transition: 0.2s ease;
   width: 202px;
-}
+} */
 @media screen and (max-width: 600px) {
   .home-container .card-cart-container .card-container .card {
     margin-right: 0.2rem;
