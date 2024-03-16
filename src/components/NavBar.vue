@@ -1,9 +1,36 @@
+<template>
+  <nav>
+    <div class="nav-container">
+      <div id="logo">
+        <a href="#/"><img src="../assets/img/logo-html.jpg" alt="logo" /></a>
+        <p class="text-center" id="text">Aspiration Sport Shop</p>
+        <horlogeComponent />
+      </div>
+      
+      <ul id="icons">
+        <li>
+          <a href="#/wish-list/"><i class="fa fa-heart"></i></a>
+          <span id="nav-notif"></span>
+        </li>
+        <li>
+          <a href="#/shopping-cart"><i class="fa-solid fa-basket-shopping"></i></a>
+        </li>
+        <li>
+          <a href="#/user-settings"><i class="fa-solid fa-user"></i></a>
+        </li>
+      </ul>
+    </div>
+    <component :is="currentView" />
+  </nav>
+</template>
+
 <script setup>
 import { ref, computed } from "vue";
 import Home from "@/pages/Home.vue";
 import ShoppingCart from "@/pages/ShoppingCart.vue";
 import UserSettings from "@/pages/UserSettings.vue";
 import WishList from "@/pages/WishList.vue";
+import horlogeComponent from "./Horloge.vue";
 
 const routes = {
   "/": Home,
@@ -22,31 +49,6 @@ const currentView = computed(() => {
   return routes[currentPath.value.slice(1) || "/"];
 });
 </script>
-
-<template>
-  <nav>
-    <div class="nav-container">
-      <div id="logo">
-        <a href="#/"><img src="../assets/img/logo-html.jpg" alt="logo" /></a>
-        <p class="text-center" id="text">Aspiration Sport Shop</p>
-      </div>
-
-      <ul id="icons">
-        <li>
-          <a href="#/wish-list/"><i class="fa fa-heart"></i></a>
-          <span id="nav-notif"></span>
-        </li>
-        <li>
-          <a href="#/shopping-cart"><i class="fa-solid fa-basket-shopping"></i></a>
-        </li>
-        <li>
-          <a href="#/user-settings"><i class="fa-solid fa-user"></i></a>
-        </li>
-      </ul>
-    </div>
-    <component :is="currentView" />
-  </nav>
-</template>
 
 <style scoped>
 nav {

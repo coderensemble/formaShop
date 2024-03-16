@@ -90,7 +90,7 @@ const addToCart = (product) => {
 }
 .card:hover .card-text {
   opacity: 1;
-  bottom: 2rem;
+  bottom: 2.2rem;
 }
 .img-container {
   overflow: hidden;

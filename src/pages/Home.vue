@@ -3,6 +3,7 @@ import { ref, computed, onMounted, watch } from "vue";
 import { useCookies } from "vue3-cookies";
 import SearchDisplay from "../components/SearchDisplay.vue";
 import CardDisplay from "../components/CardDisplay.vue";
+import CartDisplay from "../components/CartDisplay.vue";
 import { products } from '../products';
 
 
@@ -36,52 +37,52 @@ const setLikeCookie = (liked) => {
   });
 };
 
-const cartTotalAmount = computed(() => {
-  let total = 0;
-  for (let item of cart.value) {
-    total += item.quantity * item.price;
-  }
-  return total;
-});
+// const cartTotalAmount = computed(() => {
+//   let total = 0;
+//   for (let item of cart.value) {
+//     total += item.quantity * item.price;
+//   }
+//   return total;
+// });
 
-const itemTotalAmount = computed(() => {
-  let itemTotal = 0;
-  for (let item of cart.value) {
-    itemTotal += item.quantity;
-  }
-  return itemTotal;
-});
+// const itemTotalAmount = computed(() => {
+//   let itemTotal = 0;
+//   for (let item of cart.value) {
+//     itemTotal += item.quantity;
+//   }
+//   return itemTotal;
+// });
 
-const addToCart = (product) => {
-  for (let i = 0; i < cart.value.length; i++) {
-    if (cart.value[i].id === product.id) {
-      return cart.value[i].quantity++;
-    }
-  }
-  cart.value.push({
-    ...product,
-    quantity: 1,
-  });
-};
+// const addToCart = (product) => {
+//   for (let i = 0; i < cart.value.length; i++) {
+//     if (cart.value[i].id === product.id) {
+//       return cart.value[i].quantity++;
+//     }
+//   }
+//   cart.value.push({
+//     ...product,
+//     quantity: 1,
+//   });
+// };
 
-const cartPlusOne = (product) => {
-  product.quantity++;
-};
+// const cartPlusOne = (product) => {
+//   product.quantity++;
+// };
 
-const cartMinusOne = (product, id) => {
-  if (product.quantity == 1) {
-    this.cartRemoveItem(id);
-  } else {
-    product.quantity = product.quantity - 1;
-  }
-};
+// const cartMinusOne = (product, id) => {
+//   if (product.quantity == 1) {
+//     this.cartRemoveItem(id);
+//   } else {
+//     product.quantity = product.quantity - 1;
+//   }
+// };
 
-const cartRemoveItem = (id) => {
-  const index = cart.value.findIndex(item => item.id === id);
-      if (index !== -1) {
-        cart.value.splice(index, 1);
-      }
-};
+// const cartRemoveItem = (id) => {
+//   const index = cart.value.findIndex(item => item.id === id);
+//       if (index !== -1) {
+//         cart.value.splice(index, 1);
+//       }
+// };
 </script>
 
 <template>
@@ -143,7 +144,8 @@ const cartRemoveItem = (id) => {
       <!-- </div> -->
 
       <!-- Cart display -->
-      <transition name="cart-anim">
+      <CartDisplay></CartDisplay>
+      <!-- <transition name="cart-anim">
         <div v-if="cart.length > 0" class="shopping-cart" id="shopping-cart">
           <h2>Panier</h2>
 
@@ -187,7 +189,7 @@ const cartRemoveItem = (id) => {
             <button>Commander</button>
           </div>
         </div>
-      </transition>
+      </transition> -->
     </div>
   <!-- </div> -->
 </template>
@@ -251,7 +253,7 @@ a:visited {
   transition: 0.2s ease;
   width: 202px;
 } */
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
   .home-container .card-cart-container .card-container .card {
     margin-right: 0.2rem;
   }
@@ -301,7 +303,7 @@ a:visited {
   display: flex;
   align-items: start;
   justify-content: space-around;
-  /* height: 10px; */
+  height: 10px;
 }
 .home-container .card-cart-container .card-container .card .card-icons i {
   padding: 3px 5px;
@@ -341,7 +343,7 @@ a:visited {
     filter: hue-rotate(0deg);
     transform: scale(1);
   }
-}
+} */
 .home-container .card-cart-container .card-container .no-result {
   margin: 0 4rem 0 0.4rem;
 }
